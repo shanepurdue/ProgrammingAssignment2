@@ -1,7 +1,11 @@
-## Put comments here that give an overall description of what your
-## functions do
 
-## Write a short comment describing this function
+## makeCacheMatrix and cacheSolve are part of Assignment 2
+##  for R Programming in the Coursera Data Science series
+##  of courses
+
+
+## makeCacheMatrix creates a pseudo matrix with functions to set 
+##  and get a matrix and to set and get the inverse of the matrix
 
 makeCacheMatrix <- function(x = matrix()) {
   s <- NULL
@@ -10,7 +14,6 @@ makeCacheMatrix <- function(x = matrix()) {
     s <<- NULL
   }
   get <- function() x
-  #setSolve <- function(solve) s <<- solve
   setSolve <- function(solve) s <<- solve(x)
   getSolve <- function() s
   list(set = set, get = get,
@@ -19,7 +22,10 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## cacheSolve checks to see if a makeCacheMatrix has a current
+##  matrix inverse and returns it if so - if the matrix inverse
+##  isn't current, it uses the solve function to invert the
+##  matrix and returns the new inverted matrix
 
 cacheSolve <- function(x, ...) {
   s <- x$getSolve()
